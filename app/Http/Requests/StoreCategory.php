@@ -24,9 +24,18 @@ class StoreCategory extends FormRequest
     public function rules()
     {
         return [
-        'name' => 'required|unique:categories|max:64',
-        'slug' => 'required|unique:categories|max:128',
+        'name' => 'required|unique:categories,name,'.$this->category.'|max:64',
+        'slug' => 'nullable|unique:categories,slug,'.$this->category.'|max:128',
         'img' => 'nullable|mimes:jpeg,bmp,png,gif',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+        'name.required' => 'Обязательно для заполнения',
+        'name.unique' => 'Категория существует',
+        'name.max' => 'Допустимо до 64 символов',
         ];
     }
 }

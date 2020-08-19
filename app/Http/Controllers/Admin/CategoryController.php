@@ -56,11 +56,11 @@ class CategoryController extends Controller
         if($file) {
             $fName = $file->getClientOriginalName();
             $file->move( public_path('uploads'), $fName); //move функция для загрузки файла в БД, паблик_пас - путь к папке и потом имя файла для загрузки
-            $category->img = '/uploads' . $fName;
+            $category->img = '/uploads/' . $fName;
         }
 
         $category->save();
-        return redirect('/admin/category')->with('success', 'Category ' . $category->name . 'added!');
+        return redirect('/admin/category')->with('success', 'Category ' . $category->name . ' added!');
     }
 
     /**
@@ -82,7 +82,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id); //если нет id выкинет 404 ошибку
+        return view('admin.category.edit', compact('category'));
+
     }
 
     /**
@@ -94,7 +96,19 @@ class CategoryController extends Controller
      */
     public function update(StoreCategory $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->name = $request->name; //слева -то что в базе, справа - то, что приходит из формы
+        $category->slug = $request->slug;
+
+        $file = $request->file('img');
+        if($file) {
+            $fName = $file->getClientOriginalName();
+            $file->move( public_path('uploads'), $fName); //move функция для загрузки файла в БД, паблик_пас - путь к папке и потом имя файла для загрузки
+            $category->img = '/uploads/' . $fName;
+        }
+
+        $category->save();
+        return back()->with('success', 'Category ' . $category->name . ' edited!');
     }
 
     /**
@@ -105,6 +119,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::findOrFail($id)->delete();
+        return back();
     }
 }
