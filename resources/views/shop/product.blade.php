@@ -14,8 +14,14 @@
 					<p><strong>Product description:</strong> {{$products->description}}</p>
 					<p>Product ID: {{$products->id}}</p>
 					<h3>Price: {{$products->price}}</h3>
+					<form action="/" class="add-to-cart">
+						@csrf
+						<input type="number" name="qty" value="1">
+						<input type="hidden" name="product_id" value="{{$products->id}}">
+						<button class="btn btn-primary">Add to cart</button>
+					</form>
 					{{-- {{$reviews}} --}}
-					<a href="#" class="btn btn-primary">Add to cart</a>
+					{{-- <a href="#" class="btn btn-primary">Add to cart</a> --}}
 
 					<div>
 						<h4 class="my-3">Hello, {{Auth::user()["name"] ?? 'No login person now'}}</h4>

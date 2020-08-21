@@ -22,7 +22,6 @@
    	</thead>
    	<tbody>
    		@foreach($products as $item)
-
    		<tr>
    			<td>{{ $loop->iteration }}</td>
    			<td><img src="{{ $item->img }}" alt="{{$item->name}}" style="width: 100px"></td>
