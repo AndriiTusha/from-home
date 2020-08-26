@@ -2,7 +2,7 @@
       <div class="form-group">
          <label for="name">Category Name</label>
 
-         <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}">
+         <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $category->name ?? '')}}">
 
          @error('name')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -11,7 +11,7 @@
 
       <div class="form-group">
          <label for="slug">Category Slug</label>
-         <input type="text" id="slug" name="slug" class="form-control @error('slug') is-invalid @enderror" value="{{old('slug')}}">
+         <input type="text" id="slug" name="slug" class="form-control @error('slug') is-invalid @enderror" value="{{old('slug', $category->slug ?? '')}}">
          @error('slug')
             <div class="invalid-feedback">{{ $message }}</div>
          @enderror
@@ -19,6 +19,7 @@
 
       <div class="form-group">
          <label for="img">Category Image</label>
+         <img src="{{$category->img ?? '/images/no-photo.png'}}" alt="" style="width: 100px">
          <input type="file" id="img" name="img" class="form-control @error('img') is-invalid @enderror">
          @error('img')
             <div class="invalid-feedback">{{ $message }}</div>

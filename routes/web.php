@@ -20,6 +20,8 @@ Route::get('/contacts', 'MainController@contacts');
 
 Route::post('product/{slug}', 'MainController@getReview');
 
+Route::post('/cart/add', 'CartController@add'); // маршрут для корзины (добавить товар)
+ 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

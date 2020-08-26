@@ -47,7 +47,7 @@ class ProductController extends Controller
         if($file) {
             $fName = $file->getClientOriginalName();
             $file->move( public_path('uploads'), $fName); //move функция для загрузки файла в БД, паблик_пас - путь к папке и потом имя файла для загрузки
-            $product->img = '/uploads' . $fName;
+            $product->img = '/uploads/' . $fName;
         }
 
         $product->save();
@@ -74,7 +74,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id); //если нет id выкинет 404 ошибку
+        return view('admin.product.edit', compact('product'));
     }
 
     /**
@@ -86,7 +87,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->name = $request->name; //слева -то что в базе, справа - то, что приходит из формы
+        $product->slug = $request->slug;
+        $product->category_id = $request->prod_cat;
+
+        $file = $request->file('img');
+        if($file) {
+            $fName = $file->getClientOriginalName();
+            $file->move( public_path('uploads'), $fName); //move функция для загрузки файла в БД, паблик_пас - путь к папке и потом имя файла для загрузки
+            $product->img = '/uploads/' . $fName;
+        }
+
+        $product->save();
+        return back()->with('success', 'Product ' . $product->name . ' edited!');
     }
 
     /**
@@ -97,6 +111,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::findOrFail($id)->delete();
+        return back();
     }
 }
