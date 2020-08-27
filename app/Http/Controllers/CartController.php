@@ -19,4 +19,10 @@ class CartController extends Controller
     	$cart->add($product, $request->qty);
     	return view('shop._cart');
     }
+
+    public function clear() 
+    {
+        CartService::clear();
+        return view ('shop._cart');
+    }
 }

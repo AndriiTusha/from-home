@@ -106,7 +106,7 @@
 		This is a footer
 	</footer>
 
-	<script src="{{asset('/js/app.js')}}"></script>
+	
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -130,10 +130,11 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-danger clear-cart">Clear cart</button>
       </div>
     </div>
   </div>
 </div>
-
+<script src="{{asset('/js/app.js')}}"></script>
 </body>
 </html>

@@ -21,6 +21,7 @@ Route::get('/contacts', 'MainController@contacts');
 Route::post('product/{slug}', 'MainController@getReview');
 
 Route::post('/cart/add', 'CartController@add'); // маршрут для корзины (добавить товар)
+Route::post('/cart/clear', 'CartController@clear');
  
 Auth::routes();
 
