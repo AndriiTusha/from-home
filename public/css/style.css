@@ -1,0 +1,237 @@
+.banner-area h1 {
+    font-size: 36px;
+}
+
+.navbar .nav-item {
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.card-top-category:hover {
+    background-color: #F8FAFC;
+    border: 1px solid #919191;
+}
+
+.newsletter-area .car-banner {
+	background-image: url('../images/banner-bg-car.jpg');
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 400px;
+}
+
+.newsletter-area .section-top-text p {
+	font-style: italic;
+}
+
+.happy-buyers-area .buyer-slider .slide-img {
+	background-image: url('../images/employee1.jpg');
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	height: 210px;
+	width: 100%;
+}
+
+.happy-buyers-area .buyer-slider .single-slide .slide-img.img-2 {
+	background-image: url('../images/employee2.jpg');
+}
+
+.happy-buyers-area .single-slide .hover-state {
+	background-color: orange;
+	opacity: 0;
+	height: 210px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.happy-buyers-area .single-slide:hover .hover-state {
+	transition-property: opacity;
+	transition-duration: 1s;
+	transition-timing-function: ease;
+	opacity: 0.85;
+	color: #fff;
+}
+
+.happy-buyers-area .slide-text {
+	background-color: #fff;
+	margin-left: -20px;
+	box-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+}
+
+.happy-buyers-area .single-slide .slide-text .fa-quote-left {
+	color: orange;
+}
+
+.company-latest-news .card-img-top {
+	border-radius: 15px;
+}
+
+.product-name::first-letter {
+    text-transform: capitalize;
+}
+
+.footer-area {
+	color: #fff;
+    background-color: #04091E;
+	padding: 140px 0;
+}
+
+.footer-area i {
+	color: #000;
+	width: 100%;
+}
+
+.footer-area .feed img {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 5px;
+}
+
+.footer-area .list-group-item {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    text-align: center;
+    line-height: 40px;
+}
+
+.footer-area .list-group-item i::before {
+    color: #999A9C;
+}
+
+
+
+/*----------------- MEDIA queries ------------------------ */
+
+@media screen and (max-width: 240px) {
+    body {
+        min-width: 240px;
+    }
+}
+
+/* resolution >= 992px --- (from large and up) */
+@media (min-width: 992px) {
+	 .banner-bg img {
+        height: 600px;
+    }
+
+    .banner-area {
+        position: relative;
+    }
+
+    .search-area {
+        position: absolute;
+        width: 100%;
+        top: 630px;
+    }
+}
+
+/* resolution >=768px and <=991px (from medium to large) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .banner-bg img {
+        height: 550px;
+    }
+    .feature-area .card {
+    	width: 100%;
+    }
+}
+
+/* resolution >=576px and <=767px (from small to medium) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .banner-bg img {
+        height: 390px;
+    }
+    .search-area select,
+    .search-area input,
+    .search-area button {
+        width: 80%;
+        border-radius: 10px;
+        border: transparent;
+        height: 50px;
+        margin: 10px;
+    }
+
+    .search-area button {
+        width: 35%;
+    }
+    .search-area input::placeholder {
+        padding-left: 10px;
+    }
+
+    .feature-area .card-body {
+    	width: 100%;
+    }
+
+    .recent-added-area .card-img {
+    	width: 25%;
+    	margin-right: 10%;
+    }
+
+}
+
+/* resolution  <=575px (from small to extra small and down)*/
+@media (max-width: 575px) {
+    .banner-bg img {
+        height: 340px;
+    }
+    .card-img-top {
+        
+    }
+    .search-area select,
+    .search-area input,
+    .search-area button {
+        width: 80%;
+        border-radius: 10px;
+        border: transparent;
+        height: 50px;
+        margin: 10px;
+    }
+
+    .search-area button {
+        width: 35%;
+    }
+    .search-area input::placeholder {
+        padding-left: 10px;
+    }
+    feature-area .card-body {
+    	width: 100%;
+    }
+    .recent-added-area .card-img {
+    	width: 50%;
+    	/margin-right: 10%;
+        /border: 1px solid red;
+    }
+     .happy-buyers-area .buyer-slider .slide-img, .happy-buyers-area .single-slide .hover-state {
+	   height: 300px;
+	}
+
+	.happy-buyers-area .slide-text {
+	margin-left: 0px;
+	}
+}
+
+/* resolution >= 768px for form fields*/
+@media screen and (min-width: 768px) {
+
+    .search-area select,
+    .search-area input,
+    .search-area button {
+        width: 20%;
+        border-radius: 10px;
+        border: transparent;
+        height: 40px;
+    }
+
+    .search-area button {
+        width: 18%;
+    }
+
+    .search-area .from-year, .search-area .to-year {
+        width: 12.5%;
+    }
+
+    .search-area input::placeholder {
+        padding-left: 10px;
+    }
+}

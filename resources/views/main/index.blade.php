@@ -1,6 +1,7 @@
 @extends('mainlayouts.main')
 
 @section('index')
+	@include('admin._messages')
 	<h2 class="text-center my-3">Index Categories</h2>
 	<div class="container">
 		<div class="row justify-content-center">

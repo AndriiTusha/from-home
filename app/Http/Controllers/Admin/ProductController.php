@@ -40,8 +40,10 @@ class ProductController extends Controller
     {
        $product = new Product();
         $product->name = $request->name; //слева -то что в базе, справа - то, что приходит из формы
+       // $product->year = $request->year;
         $product->slug = $request->slug;
         $product->category_id = $request->prod_cat;
+
 
         $file = $request->file('img');
         if($file) {

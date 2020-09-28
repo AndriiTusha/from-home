@@ -1,5 +1,15 @@
-@extends('mainlayouts.main')
 
+{{-- @extends('main.index-new')	
+@section('pop-up')
+	@foreach($products as $product)
+			<option value="{{$product->name}}">
+				<a href="/product/{{$product->slug}}">{{$product->name}}</a>
+			</option>
+		@endforeach
+@endsection --}}
+
+
+@extends('mainlayouts.main')
 @section('index')
 	<h1 class="text-center cat-name">{{$category->name}}</h1>
 	<div class="container">
@@ -24,4 +34,4 @@
 		<div class="mt-4 d-flex justify-content-center">{{$products->links()}}</div>
 	</div>
 
-@endsection
+@endsection 

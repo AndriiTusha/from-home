@@ -19,6 +19,10 @@ class CreateProductsTable extends Migration
             $table->string('slug', 200);
             $table->string('img', 128)->nullable();
             $table->float('price');
+            $table->integer('year');
+            $table->integer('odometr');
+            $table->string('engine', 128);
+            $table->string('transmission', 128);
             $table->text('description')->nullable();
             $table->boolean('recommended')->default(0);
 

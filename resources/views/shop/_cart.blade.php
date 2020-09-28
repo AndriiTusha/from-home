@@ -19,7 +19,13 @@
 			<td>{{$product['price']}}</td>
 			<td>{{$product['qty']}}</td>
 			<td>{{$product['price'] * $product['qty']}}</td>
-			<td></td>
+			<td>
+				<form class="product-delete">
+					@csrf
+					<input type="hidden" name="product_id" value="{{$product['id']}}">
+					<button class="btn btn-danger">Delete</button>
+				</form>
+			</td>
 		</tr>
 		@endforeach
 	</tbody>

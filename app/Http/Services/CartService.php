@@ -17,11 +17,11 @@ class CartService {
 		Session::put("cart.product_{$product->id}.id", $product->id);
 		Session::put("cart.product_{$product->id}.qty", $qty); // без продукт, т.к. передано в отдельной переменной
 		}
-		$this->totalSum();
+		self::totalSum();
 	}
 
 
-public function totalSum()
+public static function totalSum()
 	{
 		$summa = 0;
 		foreach(session('cart') as $product) {
@@ -34,6 +34,12 @@ public static function clear()
 {
 	Session::forget('cart');
 	Session::forget('totalSum');
+}
+
+public static function remove($id)
+{
+	Session::forget('cart.product_' . $id);
+	self::totalSum();
 }
 
 }

@@ -13,7 +13,11 @@ class Product extends Model
 
    public function setSlugAttribute($value) 
     {
-    	$this->attributes['slug'] = empty($value) ? \Str::slug($this->attributes['name'], '-') : \Str::slug($value);
+      if(empty($this->attributes['year']))
+    	 $this->attributes['slug'] = empty($value) ? \Str::slug($this->attributes['name'] , '-') : \Str::slug($value);
+      else
+       $this->attributes['slug'] = empty($value) ? \Str::slug($this->attributes['name'] . '-' . $this->attributes['year'], '-') : \Str::slug($value);
+
     }
 
    public function getImgAttribute($value)

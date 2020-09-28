@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Arial');
 
 // Variables
 @import 'variables';
@@ -7,13 +7,6 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-body {
-	background: #ddd;
-}
-
-.main {
-	background: $backgroundGradient;
-}
 
 .cat-name {
 	color: $red;
